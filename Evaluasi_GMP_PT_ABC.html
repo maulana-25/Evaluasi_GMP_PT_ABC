@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evaluasi GMP Premium - PT. ABC President Indonesia</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial;background:#f3f6fb}
+.container{max-width:1200px;margin:auto;padding:20px}
+header{background:linear-gradient(135deg,#0a7cff,#004ca3);color:#fff;padding:35px;border-radius:18px;text-align:center}
+.card{background:#fff;border-radius:18px;padding:22px;margin:20px 0;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.full{grid-column:1/-1}
+input,select{width:100%;padding:12px;border:1px solid #ccc;border-radius:10px}
+.soal{background:#eef6ff;padding:15px;border-left:5px solid #0a7cff;border-radius:10px;margin:12px 0}
+.btn{background:#0a7cff;color:#fff;border:none;padding:12px 24px;border-radius:10px;cursor:pointer}
+#hasil{display:none}
+.badge{background:#e8fff0;padding:10px;border-radius:10px}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #ddd;padding:10px}
+th{background:#0a7cff;color:#fff}
+@media(max-width:768px){.grid{grid-template-columns:1fr}}
+@media print {.btn,.no-print{display:none} body{background:#fff}}
+.soal{
+    background:#fff;
+    border:1px solid #dbe7ff;
+    border-radius:14px;
+    padding:20px;
+    margin:18px 0;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.soal:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
+.nomor-soal{
+    font-size:18px;
+    font-weight:700;
+    color:#004ca3;
+    margin-bottom:15px;
+    display:block;
+}
+
+.opsi{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#f8fbff;
+    border:1px solid #dbe7ff;
+    border-radius:10px;
+    padding:12px 15px;
+    margin:8px 0;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.opsi:hover{
+    background:#eef6ff;
+    border-color:#0a7cff;
+}
+
+.opsi input{
+    width:auto;
+    margin:0;
+    transform:scale(1.2);
+}
+
+.opsi span{
+    flex:1;
+}
+
+#progress{
+    margin-bottom:20px;
+    font-weight:bold;
+    text-align:center;
+    font-size:16px;
+}
+
+.badge{
+    background:#e8fff0;
+    border-left:5px solid #00b050;
+    padding:15px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>GOOD MANUFACTURING PRACTICE (GMP)</h1>
+<h3>PT. ABC President Indonesia</h3>
+<p>Evaluasi Kompetensi Karyawan</p>
+</header>
+
+<div class="card">
+<h2>Data Peserta</h2>
+<div class="grid">
+<div><label>Nama</label><input id="nama"></div>
+<div><label>NIK</label><input id="nik"></div>
+<div><label>Departemen</label><input id="dept"></div>
+<div><label>Jabatan</label><input id="jabatan"></div>
+<div class="full"><label>Lokasi Kerja</label><input id="lokasi" value="Karawang"></div>
+</div>
+</div>
+
+<div class="card">
+<section class="materi-gmp">
+
+  <h2> MATERI GOOD MANUFACTURING PRACTICE (GMP)</h2>
+
+  <p>
+    Good Manufacturing Practice (GMP) adalah sistem yang digunakan untuk
+    memastikan bahwa produk diproduksi secara konsisten sesuai standar mutu,
+    aman digunakan, dan memenuhi persyaratan yang berlaku.
+  </p>
+
+  <hr>
+
+  <h3>1. Pengertian GMP</h3>
+
+  <p>
+    GMP (Good Manufacturing Practice) merupakan pedoman yang mengatur seluruh
+    proses produksi agar menghasilkan produk yang aman, bersih, dan berkualitas.
+    GMP mencakup pengendalian bahan baku, proses produksi, tenaga kerja,
+    peralatan, penyimpanan, hingga distribusi produk.
+  </p>
+
+  <h3>2. Tujuan GMP</h3>
+
+  <ul>
+    <li>Menjamin keamanan produk bagi konsumen.</li>
+    <li>Menjaga kualitas produk secara konsisten.</li>
+    <li>Mengurangi risiko kesalahan dan kontaminasi.</li>
+    <li>Memenuhi persyaratan regulasi dan standar industri.</li>
+    <li>Meningkatkan kepercayaan pelanggan terhadap perusahaan.</li>
+  </ul>
+
+  <h3>3. Industri yang Menerapkan GMP</h3>
+
+  <p>
+    GMP diterapkan pada berbagai sektor industri yang menghasilkan produk untuk
+    masyarakat, antara lain:
+  </p>
+
+  <ul>
+    <li>Industri makanan dan minuman.</li>
+    <li>Industri farmasi.</li>
+    <li>Industri kosmetik.</li>
+    <li>Industri alat kesehatan.</li>
+    <li>Industri pengolahan dan manufaktur.</li>
+  </ul>
+
+  <h3>4. Prinsip Dasar GMP</h3>
+
+  <table border="1" cellpadding="10" cellspacing="0" width="100%">
+    <tr>
+      <th>Prinsip</th>
+      <th>Penjelasan</th>
+    </tr>
+    <tr>
+      <td>Personel</td>
+      <td>Pekerja harus menjaga kebersihan dan disiplin kerja.</td>
+    </tr>
+    <tr>
+      <td>Bangunan</td>
+      <td>Area produksi harus bersih dan terawat.</td>
+    </tr>
+    <tr>
+      <td>Peralatan</td>
+      <td>Peralatan harus dibersihkan dan dikalibrasi secara rutin.</td>
+    </tr>
+    <tr>
+      <td>Bahan</td>
+      <td>Bahan baku harus memenuhi spesifikasi yang ditentukan.</td>
+    </tr>
+    <tr>
+      <td>Produksi</td>
+      <td>Proses produksi harus mengikuti SOP.</td>
+    </tr>
+    <tr>
+      <td>Quality Control</td>
+      <td>Produk harus diperiksa untuk memastikan kualitasnya.</td>
+    </tr>
+  </table>
+
+  <h3>5. Unsur GMP (5M + 1E)</h3>
+
+  <ul>
+    <li><strong>Man</strong> : Sumber Daya Manusia (SDM).</li>
+    <li><strong>Machine</strong> : Mesin dan peralatan produksi.</li>
+    <li><strong>Material</strong> : Bahan baku dan bahan pendukung.</li>
+    <li><strong>Method</strong> : Metode atau prosedur kerja.</li>
+    <li><strong>Measurement</strong> : Pengukuran dan pengendalian mutu.</li>
+    <li><strong>Environment</strong> : Lingkungan kerja yang bersih dan aman.</li>
+  </ul>
+
+  <h3>6. Contoh Penerapan GMP</h3>
+
+  <ol>
+    <li>Memeriksa kualitas bahan baku sebelum digunakan.</li>
+    <li>Menggunakan APD (Alat Pelindung Diri) sesuai ketentuan.</li>
+    <li>Membersihkan mesin sebelum dan sesudah produksi.</li>
+    <li>Mengikuti SOP pada setiap proses kerja.</li>
+    <li>Melakukan Quality Control terhadap produk.</li>
+    <li>Mendokumentasikan seluruh proses produksi.</li>
+  </ol>
+
+  <h3>7. Manfaat GMP</h3>
+
+  <ul>
+    <li>Menghasilkan produk yang aman.</li>
+    <li>Menjaga kualitas produk secara konsisten.</li>
+    <li>Meningkatkan efisiensi proses produksi.</li>
+    <li>Mengurangi jumlah produk cacat.</li>
+    <li>Meningkatkan citra dan reputasi perusahaan.</li>
+  </ul>
+
+  <h3>8. Dampak Jika GMP Tidak Diterapkan</h3>
+
+  <ul>
+    <li>Terjadi kontaminasi produk.</li>
+    <li>Produk mengalami kerusakan atau penurunan mutu.</li>
+    <li>Meningkatnya komplain pelanggan.</li>
+    <li>Kerugian finansial bagi perusahaan.</li>
+    <li>Menurunnya kepercayaan konsumen.</li>
+  </ul>
+
+  <h3>9. Dokumentasi dalam GMP</h3>
+
+  <p>
+    Dokumentasi merupakan bagian penting dalam GMP karena berfungsi sebagai
+    bukti bahwa seluruh proses telah dilakukan sesuai prosedur.
+    Dokumentasi juga memudahkan proses penelusuran apabila terjadi masalah
+    pada produk.
+  </p>
+
+  <h3>10. Kesimpulan</h3>
+
+  <p>
+    Good Manufacturing Practice (GMP) adalah sistem yang memastikan produk
+    diproduksi dengan aman, bersih, berkualitas, dan konsisten.
+    Penerapan GMP membantu perusahaan memenuhi standar mutu serta menjaga
+    kepercayaan pelanggan terhadap produk yang dihasilkan.
+  </p>
+
+  <div style="background:#eef6ff;padding:15px;border-radius:10px;">
+    <strong>Ringkasan GMP:</strong>
+    <ul>
+      <li>Produk Aman</li>
+      <li>Produk Bersih</li>
+      <li>Produk Berkualitas</li>
+      <li>Produk Konsisten</li>
+      <li>Memenuhi Standar dan Regulasi</li>
+    </ul>
+  </div>
+
+</section>
+</div>
+<div class="card">
+<h2>Soal Evaluasi GMP</h2>
+<div id="progress" class="badge">0 / 40 soal dijawab</div>
+<div id="soal"></div>
+<button class="btn" onclick="hitung()">Lihat Hasil</button>
+</div>
+
+<div id="hasil" class="card"></div>
+</div>
+
+<script>
+const data=[
+["Apa tujuan utama penerapan GMP dalam proses produksi?","A","Meningkatkan kapasitas produksi","B","Menjamin mutu dan keamanan produk secara konsisten","C","Mengurangi jumlah tenaga kerja","D","Mempercepat distribusi produk"],
+
+["Dalam GMP, Quality Control (QC) berfungsi untuk?","A","Mengawasi pemasaran produk","B","Memastikan produk memenuhi spesifikasi yang ditetapkan","C","Mengatur jadwal produksi","D","Mengendalikan biaya operasional"],
+
+["Mengapa penggunaan APD wajib diterapkan di area produksi?","A","Memenuhi persyaratan administrasi","B","Mengurangi risiko kontaminasi dan kecelakaan kerja","C","Meningkatkan kecepatan kerja","D","Mengurangi penggunaan mesin"],
+
+["Prinsip utama GMP terkait personel adalah?","A","Menjaga produktivitas kerja","B","Menjaga kebersihan, kesehatan, dan disiplin kerja","C","Meningkatkan target produksi","D","Mengurangi waktu istirahat"],
+
+["Apa risiko utama apabila bahan baku tidak memenuhi spesifikasi?","A","Peningkatan penjualan","B","Produk berpotensi tidak memenuhi standar mutu","C","Produksi berjalan lebih cepat","D","Biaya operasional menurun"],
+
+["SOP diperlukan dalam GMP karena berfungsi untuk?","A","Standarisasi pelaksanaan pekerjaan","B","Meningkatkan promosi perusahaan","C","Mengurangi jumlah operator","D","Menentukan harga jual produk"],
+
+["Kalibrasi alat ukur dilakukan untuk memastikan?","A","Kebersihan alat","B","Keakuratan hasil pengukuran","C","Efisiensi energi","D","Kekuatan material alat"],
+
+["Dokumentasi GMP sangat penting karena memungkinkan?","A","Peningkatan penjualan","B","Pelacakan riwayat proses dan produk","C","Pengurangan jumlah operator","D","Percepatan distribusi"],
+
+["Produk yang ditemukan cacat selama inspeksi harus?","A","Dicampur dengan produk baik","B","Dipisahkan dan ditindaklanjuti sesuai prosedur","C","Langsung dijual","D","Diabaikan"],
+
+["Kontaminasi silang (cross contamination) dapat dicegah dengan?","A","Meningkatkan kapasitas mesin","B","Pemisahan area dan penerapan prosedur kebersihan","C","Mengurangi dokumentasi","D","Menambah jumlah produk"],
+
+["Apa yang dimaksud dengan traceability dalam GMP?","A","Kemampuan melacak riwayat produk dan proses","B","Kemampuan meningkatkan produksi","C","Kemampuan mengurangi biaya","D","Kemampuan mempercepat distribusi"],
+
+["Unsur 'Method' dalam konsep 5M+1E mengacu pada?","A","Metode atau prosedur kerja","B","Material produksi","C","Mesin produksi","D","Lingkungan kerja"],
+
+["Unsur 'Measurement' dalam GMP berkaitan dengan?","A","Pengukuran dan pengendalian mutu","B","Penyimpanan produk","C","Distribusi produk","D","Promosi perusahaan"],
+
+["Lingkungan kerja yang tidak terkontrol dapat menyebabkan?","A","Peningkatan mutu produk","B","Risiko kontaminasi dan penurunan kualitas","C","Penurunan biaya produksi","D","Peningkatan kapasitas mesin"],
+
+["Audit GMP dilakukan untuk?","A","Menilai kepatuhan terhadap standar yang berlaku","B","Menentukan harga produk","C","Meningkatkan promosi","D","Menentukan jumlah karyawan"],
+
+["Karyawan yang bekerja di area produksi harus?","A","Mengikuti prosedur kebersihan dan keamanan","B","Bekerja tanpa APD","C","Membawa makanan ke area produksi","D","Mengabaikan SOP"],
+
+["Apa manfaat utama penerapan GMP bagi konsumen?","A","Produk lebih murah","B","Produk lebih aman dan berkualitas","C","Produk lebih cepat dikirim","D","Produk lebih banyak tersedia"],
+
+["Jika ditemukan penyimpangan proses produksi, tindakan yang tepat adalah?","A","Mengabaikannya","B","Melaporkan dan melakukan tindakan korektif","C","Menyembunyikannya","D","Melanjutkan produksi tanpa evaluasi"],
+
+["Penerapan GMP yang efektif dapat membantu perusahaan?","A","Mengurangi kepercayaan pelanggan","B","Meningkatkan reputasi dan kepuasan pelanggan","C","Mengurangi kualitas produk","D","Menghilangkan kebutuhan QC"],
+
+["Apa hubungan GMP dengan kualitas produk?","A","Tidak berhubungan","B","GMP membantu menjaga kualitas secara konsisten","C","GMP hanya fokus pada dokumentasi","D","GMP hanya berlaku untuk bahan baku"],
+
+["Apa fungsi utama area karantina bahan baku?","A","Tempat penyimpanan bahan yang belum disetujui","B","Area promosi produk","C","Tempat istirahat operator","D","Area pengemasan produk jadi"],
+
+["Mengapa inspeksi rutin peralatan penting dalam GMP?","A","Mengurangi dokumentasi","B","Mencegah kerusakan dan menjaga kinerja alat","C","Mengurangi kebutuhan operator","D","Mempercepat distribusi"],
+
+["Siapa yang bertanggung jawab terhadap penerapan GMP?","A","Departemen QC saja","B","Manajemen saja","C","Seluruh karyawan sesuai tanggung jawabnya","D","Supervisor saja"],
+
+["Apa dampak utama dokumentasi yang tidak lengkap?","A","Sulit melakukan investigasi masalah","B","Produksi meningkat","C","Biaya turun","D","Produk lebih cepat dipasarkan"],
+
+["Bahan baku yang telah melewati masa simpan harus?","A","Digunakan segera","B","Dievaluasi sesuai prosedur perusahaan","C","Dicampur dengan bahan baru","D","Langsung diproses"],
+
+["Apa tujuan validasi proses?","A","Memastikan proses mampu menghasilkan produk sesuai spesifikasi","B","Mengurangi jumlah operator","C","Meningkatkan penjualan","D","Mengurangi dokumentasi"],
+
+["Mengapa area produksi harus dijaga tetap bersih?","A","Agar terlihat menarik","B","Mencegah kontaminasi produk","C","Mengurangi penggunaan listrik","D","Meningkatkan penjualan"],
+
+["Apa yang dimaksud tindakan korektif (Corrective Action)?","A","Tindakan untuk menghilangkan penyebab ketidaksesuaian","B","Pembersihan rutin","C","Pemeriksaan produk jadi","D","Penyimpanan bahan baku"],
+
+["Apa tujuan tindakan pencegahan (Preventive Action)?","A","Mencegah terulangnya potensi masalah","B","Meningkatkan produksi","C","Mengurangi jumlah QC","D","Mengurangi dokumentasi"],
+
+["Penyimpanan bahan baku harus memperhatikan?","A","Kondisi yang sesuai spesifikasi penyimpanan","B","Harga bahan","C","Jumlah operator","D","Target penjualan"],
+
+["Karyawan yang sedang sakit sebaiknya?","A","Tetap bekerja di area produksi","B","Melapor sesuai prosedur kesehatan perusahaan","C","Mengabaikan kondisi kesehatannya","D","Memindahkan bahan baku"],
+
+["Apa tujuan pelatihan GMP bagi karyawan?","A","Memastikan pemahaman dan kepatuhan terhadap GMP","B","Mengurangi kebutuhan SOP","C","Mengurangi jumlah audit","D","Menghilangkan dokumentasi"],
+
+["Ketidaksesuaian (non-conformance) harus?","A","Didokumentasikan dan ditindaklanjuti","B","Diabaikan","C","Disembunyikan","D","Dihapus dari laporan"],
+
+["Apa manfaat inspeksi area produksi secara berkala?","A","Mengidentifikasi potensi risiko dan ketidaksesuaian","B","Meningkatkan promosi","C","Mengurangi jumlah karyawan","D","Mengurangi kebutuhan QC"],
+
+["Mengapa pelabelan bahan sangat penting?","A","Memudahkan identifikasi dan mencegah kesalahan penggunaan","B","Mempercantik gudang","C","Meningkatkan penjualan","D","Mengurangi biaya produksi"],
+
+["Apa yang harus dilakukan jika menemukan produk terkontaminasi?","A","Segera dipisahkan dan dilaporkan","B","Dicampur dengan produk lain","C","Langsung dijual","D","Disimpan tanpa identifikasi"],
+
+["Dalam GMP, perubahan proses harus?","A","Dikendalikan dan didokumentasikan","B","Dilakukan tanpa persetujuan","C","Diabaikan","D","Tidak perlu dicatat"],
+
+["Apa manfaat audit internal yang efektif?","A","Meningkatkan kepatuhan dan perbaikan berkelanjutan","B","Mengurangi kualitas produk","C","Menghilangkan SOP","D","Mengurangi kebutuhan pelatihan"],
+
+["Produk jadi harus diperiksa sebelum distribusi untuk memastikan?","A","Mutu dan keamanan sesuai spesifikasi","B","Harga jual sesuai pasar","C","Jumlah operator mencukupi","D","Biaya distribusi rendah"],
+
+["Penerapan GMP yang konsisten akan menghasilkan?","A","Produk aman, bermutu, dan dapat dipercaya","B","Produk lebih murah tanpa kontrol mutu","C","Produksi tanpa dokumentasi","D","Pengurangan seluruh proses inspeksi"]
+];
+const kunci=[
+"B", // 1
+"B", // 2
+"B", // 3
+"B", // 4
+"B", // 5
+"A", // 6
+"B", // 7
+"B", // 8
+"B", // 9
+"B", // 10
+"A", // 11
+"A", // 12
+"A", // 13
+"B", // 14
+"A", // 15
+"A", // 16
+"B", // 17
+"B", // 18
+"B", // 19
+"B", // 20
+"A", // 21
+"B", // 22
+"C", // 23
+"A", // 24
+"B", // 25
+"A", // 26
+"B", // 27
+"A", // 28
+"A", // 29
+"A", // 30
+"B", // 31
+"A", // 32
+"A", // 33
+"A", // 34
+"A", // 35
+"A", // 36
+"A", // 37
+"A", // 38
+"A", // 39
+"A"  // 40
+];
+
+document.getElementById('soal').innerHTML=data.map((s,i)=>`
+<div class="soal">
+
+<span class="nomor-soal">
+${i+1}. ${s[0]}
+</span>
+
+<label class="opsi">
+<input type="radio" name="q${i}" value="A">
+<span><b>A.</b> ${s[2]}</span>
+</label>
+
+<label class="opsi">
+<input type="radio" name="q${i}" value="B">
+<span><b>B.</b> ${s[4]}</span>
+</label>
+
+<label class="opsi">
+<input type="radio" name="q${i}" value="C">
+<span><b>C.</b> ${s[6]}</span>
+</label>
+
+<label class="opsi">
+<input type="radio" name="q${i}" value="D">
+<span><b>D.</b> ${s[8]}</span>
+</label>
+
+</div>
+`).join("");
+
+document.addEventListener('change',()=>{
+let n=document.querySelectorAll('input[type=radio]:checked').length;
+document.getElementById('progress').innerText =
+n + ' / ' + data.length + ' soal dijawab';
+});
+
+const nama = document.getElementById("nama");
+const nik = document.getElementById("nik");
+const dept = document.getElementById("dept");
+const jabatan = document.getElementById("jabatan");
+const lokasi = document.getElementById("lokasi");
+
+function hitung(){
+
+if(
+    !nama.value.trim() ||
+    !nik.value.trim() ||
+    !dept.value.trim() ||
+    !jabatan.value.trim() ||
+    !lokasi.value.trim()
+){
+    alert("Lengkapi data peserta terlebih dahulu");
+    return;
+}
+
+let benar = 0;
+let jawab = 0;
+
+for(let i=0;i<data.length;i++){
+    let p = document.querySelector('input[name=q'+i+']:checked');
+
+    if(p){
+        jawab++;
+
+        if(p.value === kunci[i]){
+            benar++;
+        }
+    }
+}
+
+if(jawab < data.length){
+    alert("Semua soal wajib dijawab");
+    return;
+}
+
+let nilai = Math.round((benar/data.length)*100);
+let status = nilai >= 75 ? "LULUS" : "BELUM LULUS";
+
+let sekarang = new Date();
+
+let tgl = sekarang.toLocaleDateString('id-ID',{
+    day:'2-digit',
+    month:'long',
+    year:'numeric'
+});
+
+let noSertifikat =
+    'ABC-GMP-' +
+    nik.value +
+    '-' +
+    sekarang.getFullYear() +
+    String(sekarang.getMonth()+1).padStart(2,'0');
+
+let sertifikat = '';
+
+if(nilai >= 75){
+
+    sertifikat = `
+    <hr>
+    <div style="border:4px solid #0a7cff;border-radius:15px;padding:25px;text-align:center">
+
+        <h2>SERTIFIKAT KELULUSAN</h2>
+
+        <p><b>No. Sertifikat:</b> ${noSertifikat}</p>
+        <p><b>Tanggal:</b> ${tgl}</p>
+
+        <p>Diberikan kepada</p>
+
+        <h2>${nama.value}</h2>
+
+        <p>
+        Atas keberhasilannya menyelesaikan
+        Evaluasi GMP (Good Manufacturing Practice)
+        PT. ABC President Indonesia.
+        </p>
+
+        <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(noSertifikat)}"
+        alt="QR Code">
+
+        <br><br>
+
+        <div style="display:flex;justify-content:space-between">
+            <div>
+                Peserta
+                <br><br><br>
+                __________________
+            </div>
+
+            <div>
+                Trainer
+                <br><br><br>
+                Ery Supriatna
+            </div>
+        </div>
+
+        <br>
+
+        <button class="btn no-print" onclick="window.print()">
+            Cetak / Simpan PDF
+        </button>
+
+    </div>
+    `;
+
+}else{
+
+    sertifikat = `
+    <div style="
+        background:#fff3cd;
+        color:#856404;
+        border-left:5px solid #ffc107;
+        padding:15px;
+        border-radius:10px;
+        margin-top:20px;
+    ">
+        <b>Peserta belum lulus.</b><br>
+        Nilai minimal kelulusan adalah <b>75</b>.
+        Silakan mengikuti evaluasi ulang.
+    </div>
+    `;
+}
+
+let h = document.getElementById("hasil");
+
+h.style.display = "block";
+
+h.innerHTML = `
+    <h2>HASIL EVALUASI GMP</h2>
+
+    <p><b>Nama:</b> ${nama.value}</p>
+    <p><b>NIK:</b> ${nik.value}</p>
+    <p><b>Departemen:</b> ${dept.value}</p>
+    <p><b>Jabatan:</b> ${jabatan.value}</p>
+    <p><b>Lokasi Kerja:</b> ${lokasi.value}</p>
+
+    <p><b>Benar:</b> ${benar} dari ${data.length}</p>
+    <p><b>Salah:</b> ${data.length - benar}</p>
+
+    <p><b>Nilai:</b> ${nilai}</p>
+    <p><b>Status:</b> ${status}</p>
+
+    ${sertifikat}
+`;
+
+window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+});
+
+}
+</script>
+</body>
+</html>
